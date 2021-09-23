@@ -47,6 +47,8 @@ func Start() {
 	router.HandleFunc("/customers", ch.getAllCustomers)
 	router.HandleFunc("/customer/{customer_id:[0-9]+}", ch.getCustomerById)
 	router.HandleFunc("/customer/{customer_id:[0-9]+}/account", ah.NewAccount).Methods(http.MethodPost)
+
+	router.HandleFunc("/customer/{customer_id:[0-9]+}/account/{account_id:[0-9]+}", ah.MakeTransaction).Methods(http.MethodPost)
 	// := os.Getenv("SERVER_ADDRESS")
 	//port := os.Getenv("SERVERPORT")
 
